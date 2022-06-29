@@ -16,6 +16,7 @@ Vagrant.configure("2") do |config|
        sh.path = "main.sh"
      end
      master.vm.provision "file", source: "key_generate.sh", destination: "/home/vagrant/"
+     master.vm.provision "file", source: "ansible_books/docker-install.yml", destination: "home/vagrant/ansible_books/"
    end
 
 
