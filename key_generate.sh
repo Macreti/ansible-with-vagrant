@@ -15,6 +15,7 @@ done
 # CREATE THE INVENTORY FILE
 
 PROJECT_DIRECTORY="/home/vagrant/ansible_project/"
+ANSIBLE_BOOK_DIRECTORY="/home/vagrant/ansible_books/"
 
 mkdir -p $PROJECT_DIRECTORY
 cd $PROJECT_DIRECTORY
@@ -28,4 +29,12 @@ echo -e "-------------------- RUNNING ANSBILE ADHOC COMMAND - UPTIME -----------
 # running adhoc command to see if everything is fine
 
 ansible all -i inventory -m "shell" -a "uptime"
+
+# Creating the inventory file for two nodes to run playbook
+cd ..
+cd $ANSIBLE_BOOK_DIRECTORY 
+
+echo -e "[ubuntu1]\nmanaged-3\n\n[ubuntu2]\nmanaged-4" > inventory
+
 echo
+
